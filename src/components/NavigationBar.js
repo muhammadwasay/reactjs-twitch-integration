@@ -8,7 +8,7 @@ const NavigationBar = () => (
             <Navbar.Brand href="#">
                 <img
                     alt=""
-                    src="/twitch-tv-logo-51C922E0F0-seeklogo.com.png"
+                    src="/twitch-tv-logo.png"
                     height="30"
                     className="d-inline-block align-top"
                 />{' '}
