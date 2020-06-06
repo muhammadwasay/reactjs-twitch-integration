@@ -28,7 +28,7 @@ const StreamsPage = ({game, topStreams}) => (
                     </Card.Body>
                 </Card>
                 <br/>
-                {topStreams.length == 0 ? <span></span> :
+                {topStreams.length === 0 ? <span></span> :
                     topStreams.map((streamData, index) => (
                         <StreamsItem key={key++} streamData={streamData}/>
                     ))}

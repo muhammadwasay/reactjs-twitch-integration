@@ -3,11 +3,23 @@ import {connect} from "react-redux";
 import {getTopGames} from "../app/actions";
 import Button from "react-bootstrap/Button";
 import {withRouter} from "react-router-dom";
+import axios from 'axios'
 
 class GetTopGamesButton extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
     handleGetTopGames = () => {
-        this.props.getTopGames();
+        let that = this;
+        axios.get('http://localhost:8080/games/top')
+            .then(function (response) {
+                console.log(response.data);
+                that.props.getTopGames(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     };
 
     render() {

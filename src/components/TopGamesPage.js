@@ -27,7 +27,7 @@ const TopGamesPage = ({topGames}) => (
                     </Card.Body>
                 </Card>
                 <br/>
-                {topGames.length == 0 ? <span></span> :
+                {topGames.length === 0 ? <span></span> :
                     topGames.map((gameData, index) => (
                         <GameItem key={key++} gameData={gameData}/>
                     ))}

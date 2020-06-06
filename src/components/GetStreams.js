@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {getStreams} from "../app/actions";
 import Button from "react-bootstrap/Button";
 import {withRouter} from "react-router-dom";
+import axios from "axios";
 
 class GetStreams extends React.Component {
     constructor(props) {
@@ -12,7 +13,15 @@ class GetStreams extends React.Component {
     }
 
     handleGetStreams = () => {
-        this.props.getStreams(this.gameId);
+        let that = this;
+        axios.get('http://localhost:8080/streams?game_id='+this.gameId)
+            .then(function (response) {
+                console.log(response.data);
+                that.props.getStreams(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     };
 
     render() {
